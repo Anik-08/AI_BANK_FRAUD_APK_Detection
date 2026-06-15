@@ -5,3 +5,5 @@ __pycache__/
 tmp/
 generated_reports/
 *.log
+.venv/
+app/__pycache__/

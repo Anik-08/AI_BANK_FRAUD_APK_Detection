@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
-import Navbar from "./components/Navbar";
 import UploadPage from "./pages/UploadPage";
 import LoadingPage from "./pages/LoadingPage";
 import ResultsPage from "./pages/ResultsPage";
@@ -11,11 +10,11 @@ function App() {
   const [analysisData, setAnalysisData] = useState(null);
   const [error, setError] = useState(null);
   const [loadingStep, setLoadingStep] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [visible] = useState(true);
 
-  useEffect(() => {
-    setVisible(true);
-  }, []);
+  // useEffect(() => {
+  //   setVisible(true);
+  // }, []);
 
   const handleFileSelect = async (file) => {
     setSelectedFile(file);
@@ -58,10 +57,9 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <div
         className={`page-transition ${visible ? "fade-in-active" : "fade-out"}`}
-        style={{ paddingTop: "65px" }}
+        style={{ paddingTop: "1px" }}
       >
         {page === "upload" && (
           <UploadPage onFileSelect={handleFileSelect} error={error} />
